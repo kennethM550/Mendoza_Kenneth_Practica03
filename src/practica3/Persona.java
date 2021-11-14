@@ -8,11 +8,11 @@ public class Persona {
     String Nombre;
     String Nrodoc;
 
-    public Persona() {
-        this.Paterno = "";
-        this.Materno = "";
-        this.Nombre = "";
-        this.Nrodoc = "";
+    public Persona(String Paterno, String Materno, String Nombre, String Nrodoc) {
+        this.Paterno = Paterno;
+        this.Materno = Materno;
+        this.Nombre = Nombre;
+        this.Nrodoc = Nrodoc;
     }
 
     public String getPaterno() {

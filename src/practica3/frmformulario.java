@@ -7,6 +7,8 @@ package practica3;
 
 import java.util.LinkedList;
 
+
+
 /**
  *
  * @author Kenneth
@@ -146,6 +148,11 @@ public class frmformulario extends javax.swing.JFrame {
         );
 
         btnMostrar.setText("Mostrar registro");
+        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Salir");
 
@@ -188,13 +195,20 @@ public class frmformulario extends javax.swing.JFrame {
         String c=txtMaterno.getText();
         String d=txtNumero.getText();
         
-        Practica3.guardar(a,b,c,d);
+        Persona usuario=new Persona(a,b,c,d);
+        contenedor.add(usuario);
         
         txtMaterno.setText("");
         txtNombre.setText("");
         txtPaterno.setText("");
         txtNumero.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
+        // TODO add your handling code here:
+        frmdata mostrar=new frmdata();
+        mostrar.setVisible(true);
+    }//GEN-LAST:event_btnMostrarActionPerformed
 
     /**
      * @param args the command line arguments

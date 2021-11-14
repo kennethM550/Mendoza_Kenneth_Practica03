@@ -5,19 +5,43 @@
  */
 package practica3;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Kenneth
  */
 public class frmdata extends javax.swing.JFrame {
-
+    private DefaultTableModel usuario;
+    int contador=0;
     /**
      * Creates new form frmdata
      */
     public frmdata() {
         initComponents();
+        CargarInterfaz();
+        CargarDatos();
     }
-
+    
+    public void CargarInterfaz(){
+        String datos[][]={};
+        String columna[]={"Ap.Paterno","Ap.Materno","Nombre","Número"};
+        usuario=new DefaultTableModel(datos,columna);
+        tbDatos.setModel(usuario);
+    }
+    
+    public void CargarDatos(){
+        Persona a;
+        
+        for (int i = 0; i < frmformulario.contenedor.size(); i++) {
+            a=(Persona)frmformulario.contenedor.get(i);
+            usuario.insertRow(contador, new Object[]{});
+            usuario.setValueAt(a.getPaterno(),contador,0);
+            usuario.setValueAt(a.getMaterno(),contador,1);
+            usuario.setValueAt(a.getNombre(),contador,2);
+            usuario.setValueAt(a.getNrodoc(),contador,3);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -61,7 +85,7 @@ public class frmdata extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3", "Title 4", "null"
             }
         ));
         jScrollPane1.setViewportView(tbDatos);
